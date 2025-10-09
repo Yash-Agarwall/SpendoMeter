@@ -1,12 +1,40 @@
-# React + Vite
+# SpendoMeter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://spendo-meter.vercel.app/)
 
-Currently, two official plugins are available:
+**SpendoMeter** is a sleek and intuitive **expense tracker** built with React.js. It helps you manage your finances by tracking income and expenses, categorizing transactions, and visualizing spending with interactive pie charts.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Add, Edit, Delete Transactions**: Manage your income and expenses with ease.  
+- **Add, Edit, Delete Transactions**: Manage your income and expenses easily.  
+- **Categorization**: Assign categories like Food, Travel, Bills, Shopping, etc.  
+- **Pie Chart Analytics**: Visualize your spending by category using interactive pie charts powered by Recharts.  
+- **Persistent Storage**: All data is stored in **localStorage**, so your transactions persist across sessions.  
+@@ -23,12 +25,17 @@
+
+---
+
+## 📦 Installation
+## 🌐 Live Demo
+
+Check out the live version of **SpendoMeter** here: [https://spendo-meter.vercel.app/](https://spendo-meter.vercel.app/)
+
+---
+
+## 🧪 Usage
+
+Clone the repository and install dependencies:
+1. **Add Transaction**: Fill in name, type, category, amount, and description, then click **Add**.  
+2. **Edit / Delete**: Click the edit or delete button on a transaction to modify it.  
+3. **View Analytics**: Pie chart shows expense distribution by category.  
+4. **Filter / Sort**: Use the controls to view specific types of transactions or reorder by date/amount.
+
+```bash
+git clone https://github.com/Yash-Agarwall/SpendoMeter.git
+cd SpendoMeter
+npm install
+ 
+---
