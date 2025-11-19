@@ -15,14 +15,6 @@
 - **Persistent Storage**: All data is stored in **localStorage**, so your transactions persist across sessions.  
 @@ -23,12 +25,17 @@
 
----
-
-## 📦 Installation
-## 🌐 Live Demo
-
-Check out the live version of **SpendoMeter** here: [https://spendo-meter.vercel.app/](https://spendo-meter.vercel.app/)
-
----
 
 ## 🧪 Usage
 
