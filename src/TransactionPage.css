@@ -20,29 +20,89 @@ body {
 }
 
 .summary-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   padding: var(--spacing-xl);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   transition: all var(--transition-base);
-  border-left: 4px solid;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, currentColor, transparent);
+  opacity: 0;
+  transition: opacity var(--transition-base);
 }
 
 .summary-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 1);
+}
+
+.summary-card:hover::before {
+  opacity: 1;
 }
 
 .summary-card.balance {
-  border-left-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.summary-card.balance::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+  opacity: 0.1;
+  border-radius: 50%;
 }
 
 .summary-card.income {
-  border-left-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+.summary-card.income::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(
+    circle,
+    var(--secondary-color) 0%,
+    transparent 70%
+  );
+  opacity: 0.1;
+  border-radius: 50%;
 }
 
 .summary-card.expense {
-  border-left-color: var(--danger-color);
+  color: var(--danger-color);
+}
+
+.summary-card.expense::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, var(--danger-color) 0%, transparent 70%);
+  opacity: 0.1;
+  border-radius: 50%;
 }
 
 .summary-card h4 {
@@ -73,10 +133,12 @@ body {
 }
 
 .form-section {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   padding: var(--spacing-xl);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   margin-bottom: var(--spacing-xl);
 }
 
@@ -133,19 +195,41 @@ form button {
   color: white;
   border: none;
   padding: var(--spacing-md) var(--spacing-xl);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   cursor: pointer;
   font-size: var(--font-size-base);
   font-weight: 600;
   transition: all var(--transition-base);
   width: 100%;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
   margin-top: var(--spacing-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+form button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+form button:hover::before {
+  left: 100%;
 }
 
 form button:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
 }
 
 form button:active {
@@ -153,10 +237,12 @@ form button:active {
 }
 
 .transaction-container {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   padding: var(--spacing-xl);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .controls {
