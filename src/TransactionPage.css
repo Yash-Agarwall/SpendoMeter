@@ -195,63 +195,6 @@ form button:active {
   background: white;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  margin-bottom: var(--spacing-md);
-  padding: 0;
-  border-radius: var(--radius-lg);
-  box-shadow: none;
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-  transition: none;
-}
-
-li:hover {
-  transform: none;
-}
-
-li div {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  user-select: none;
-}
-
-li div span {
-  flex-grow: 1;
-}
-
-li button {
-  margin-left: var(--spacing-sm);
-  padding: var(--spacing-sm);
-  border: none;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  background: transparent;
-}
-
-li button:hover {
-  background: var(--bg-color);
-}
-
-li button:first-of-type:hover {
-  background: rgba(239, 68, 68, 0.1);
-}
-
-li button:last-of-type:hover {
-  background: rgba(99, 102, 241, 0.1);
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -263,7 +206,6 @@ li button:last-of-type:hover {
   }
 }
 
-/* Responsive Design */
 @media (max-width: 968px) {
   .page-container {
     padding: var(--spacing-md);
