@@ -4,9 +4,9 @@
 }
 
 .analytics-title {
-  margin: 0 0 var(--spacing-xl) 0;
+  margin: 20px;
   font-size: var(--font-size-2xl);
-  color: var(--text-primary);
+  color: #FFF;
   font-weight: 700;
 }
 
