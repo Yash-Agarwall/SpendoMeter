@@ -1,6 +1,7 @@
 import { use, useEffect, useState } from "react";
 import TransactionForm from "./TransactionForm";
 import TransactionList from "./TransactionList";
+import Analytics from "./Analytics";
 import "./TransactionPage.css";
 
 export default function TransactionPage() {
@@ -140,6 +141,8 @@ export default function TransactionPage() {
           onEdit={handleEdit}
         />
       </div>
+
+      <Analytics transactions={transactions} />
     </div>
   );
 }
