@@ -42,7 +42,6 @@ export default function TransactionPage() {
   }, [transactions]);
 
   let filteredTransactions = transactions.filter((tx) => {
-    //why to use ==== instead of ==
     if (filter === "income") return tx.amount > 0;
     else if (filter === "expense") return tx.amount < 0;
     return true;
@@ -61,41 +60,55 @@ export default function TransactionPage() {
   return (
     <div className="page-container">
       <div className="summary">
-        <h4>Balance: {total}</h4>
-
-        <h4 style={{ fontStyle: "bold" }}>
-          Income: <span style={{ color: "green" }}>{income}</span>
-        </h4>
-        <h4>
-          Expense: <span style={{ color: "red" }}>{expense}</span>
-        </h4>
+        <div className="summary-card balance">
+          <h4>Total Balance</h4>
+          <p className="amount">₹{total.toLocaleString()}</p>
+        </div>
+        <div className="summary-card income">
+          <h4>Total Income</h4>
+          <p className="amount">₹{income.toLocaleString()}</p>
+        </div>
+        <div className="summary-card expense">
+          <h4>Total Expense</h4>
+          <p className="amount">₹{Math.abs(expense).toLocaleString()}</p>
+        </div>
       </div>
-      <h4>Add Transaction</h4>
-      <TransactionForm
-        initialValues={
-          editingTransaction || {
-            name: "",
-            description: "",
-            amount: "",
-            type: "expense",
-            id: "",
-            date: "",
+
+      <div className="form-section">
+        <h4>
+          {editingTransaction ? "Edit Transaction" : "Add New Transaction"}
+        </h4>
+        <TransactionForm
+          initialValues={
+            editingTransaction || {
+              name: "",
+              description: "",
+              amount: "",
+              type: "expense",
+              id: "",
+              date: "",
+              category: "other",
+            }
           }
-        }
-        onSubmit={(transaction) => {
-          if (editingTransaction) {
-            setTransactions((prev) =>
-              prev.map((t) => (t.id === transaction.id ? transaction : t))
-            );
-            setEditingTransaction(null);
-          } else {
-            setTransactions((prev) => [...prev, transaction]);
-          }
-        }}
-      />
+          onSubmit={(transaction) => {
+            if (editingTransaction) {
+              setTransactions((prev) =>
+                prev.map((t) => (t.id === transaction.id ? transaction : t))
+              );
+              setEditingTransaction(null);
+            } else {
+              setTransactions((prev) => [...prev, transaction]);
+            }
+          }}
+        />
+      </div>
+
       <div className="transaction-container">
         <div className="controls">
-          <label htmlFor="filter"><span class="material-symbols-outlined">tune</span></label>
+          <label htmlFor="filter">
+            <span className="material-symbols-outlined">tune</span>
+            Filter
+          </label>
           <select
             name="filter"
             id="filter"
@@ -106,16 +119,19 @@ export default function TransactionPage() {
             <option value="expense">Expense</option>
           </select>
 
-          <label htmlFor="sort"><span className="material-symbols-outlined">sort</span> </label>
+          <label htmlFor="sort">
+            <span className="material-symbols-outlined">sort</span>
+            Sort
+          </label>
           <select
             name="sort"
             id="sort"
             onChange={(e) => setSort(e.target.value)}
           >
-            <option value="newest">Date( Newest first )</option>
-            <option value="oldest">Date (Oldest first)</option>
-            <option value="high">Amount( High to low )</option>
-            <option value="low">Amount(Low to high)</option>
+            <option value="newest">Newest First</option>
+            <option value="oldest">Oldest First</option>
+            <option value="high">High to Low</option>
+            <option value="low">Low to High</option>
           </select>
         </div>
         <TransactionList
